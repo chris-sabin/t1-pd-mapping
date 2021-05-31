@@ -3,20 +3,20 @@
 
 ### **1. Data**
 -   Spoiled gradient-echo (SPGR) data
-    * Multi-image: variable excitation angles (α)
+    * 2 images: variable excitation angles (α)
     * Fixed repetition time (TR)
     * Fixed echo time (TE)
 
 ### **2. Inputs**
--   Signal S<sub>n</sub>(α<sub>n</sub>), for each flip angle α<sub>n.
+-   Signal S<sub>n</sub>(α<sub>n</sub>), for each flip angle α<sub>n</sub> (*n=1,2*).
 -   Repetition time TR
 
 ### **3. Method**
-<p>Assuming a longitudinal steady-state has been reached with perfect spoiling, the signal S<sub>z</sub> of a SPGR sequence is:</p>
+Assuming a longitudinal steady-state has been reached with perfect spoiling, the signal S<sub>z</sub> (for a given voxel *z*) of a SPGR sequence is:
 
 <div style="text-align:center">
 ​<img src="https://render.githubusercontent.com/render/math?math=$S_{z} = M_{0}sin{\alpha\frac{1 - \epsilon}{1 - \epsilon\cos\alpha}} \quad \textrm{where} \quad \epsilon = e^{\frac{- TR}{T_{1}}}$">
-</div>
+</div><br>
 
 Which can rearranged to fit a linear form:
 
@@ -35,13 +35,13 @@ Now it is clear that *ε* is equal to the line gradient *b*, from which we can g
 
 <div style="text-align:center">
 <img src="https://render.githubusercontent.com/render/math?math=b = \epsilon = \frac{\frac{S_{z}(a_{2})}{\sin a_{2}} - \frac{S_{z}(a_{1})}{\sin a_{1}}}{\frac{S_{z}( a_{2})}{\tan a_{2}} - \frac{S_{z}(a_{1})}{\tan a_{1}}} \quad \textrm{i.e.} \quad b = \frac{y_{2} - y_{1}}{x_{2} - x_{1}})">
-</div>
+</div><br>
 
 After which, the intercept can be calculated via substitution of one of the signal points:
 
 <div style="text-align:center">
 <img src="https://render.githubusercontent.com/render/math?math=c = M_{0}(1 - \epsilon) = \frac{S_{z}}{\sin\alpha} - \epsilon\frac{S_{z}}{\tan\alpha} \quad \textrm{i.e.} \quad c = y - bx)">
-</div>
+</div><br>
 
 We are then able to gain our T<sub>1</sub> mapping and M<sub>0</sub> as:
 
@@ -49,11 +49,7 @@ We are then able to gain our T<sub>1</sub> mapping and M<sub>0</sub> as:
 <img src="https://render.githubusercontent.com/render/math?math=T_{1} = \frac{-TR}{\ln(b)}, \quad M_{0} = \frac{c}{1 - b}">
 </div>
 
-### **4. Additional Steps**
-
--   Since VFA T<sub>1</sub> mapping is sensible to flip angle inaccuracies (B<sub>1</sub> field variations) and these inaccuracies are severe at 3T, a B<sub>1</sub>-map is usually calculated to solve this problem.
-
-### **5. References**
+### **4. References**
 
 1.  Deoni, S. C. L., Williams, S. C. R., Jezzard, P., Suckling, J.,
     Murphy, D. G. M., & Jones, D. K. (2008). Standardized structural
