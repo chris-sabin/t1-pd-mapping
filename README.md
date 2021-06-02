@@ -31,7 +31,7 @@ If we plot
 ![drawing](t1_pd_mapping_fig1.png)<br>
 <sub>Fig. 1 - An example showing linearisation from two acquired signals</sub> <br>
 
-Now it is clear that *ε* is equal to the line gradient *b*, from which we can gain the value of T<sub>1</sub>. And, the intercept *c*, from which we can gain the value of M<sub>0</sub> (Proton Density - PD). The gradient can be calculated as follows:
+Now it is clear that *ε* is equal to the line gradient *b*, from which we can gain the value of T<sub>1</sub>. And, the intercept *c*, from which we can gain the value of M<sub>0</sub>. The gradient can be calculated as follows:
 
 <div style="text-align:center">
 <img src="https://render.githubusercontent.com/render/math?math=b = \epsilon = \frac{\frac{S_{z}(a_{2})}{\sin a_{2}} - \frac{S_{z}(a_{1})}{\sin a_{1}}}{\frac{S_{z}( a_{2})}{\tan a_{2}} - \frac{S_{z}(a_{1})}{\tan a_{1}}} \quad \textrm{i.e.} \quad b = \frac{y_{2} - y_{1}}{x_{2} - x_{1}})">
